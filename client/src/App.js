@@ -6,9 +6,11 @@ import {
   useLocation
 } from 'react-router-dom';
 
-import  Home  from "./scenes/home/Home";
-import  Checkout  from "./scenes/checkout/Checkout";
-import  ItemDetails  from "./scenes/itemDetails/ItemDetails";
+import Home from "./scenes/home/Home";
+import Checkout from "./scenes/checkout/Checkout";
+import ItemDetails from "./scenes/itemDetails/ItemDetails";
+import Confirmation from "./scenes/checkout/Confirmation";
+import NavBar from "./scenes/global/NavBar";
 
 
 const ScrollToTop = () => {
@@ -25,12 +27,14 @@ function App() {
   return (
     <div className="app">
         <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="item/:itemId" element={<ItemDetails />} />
-          <Route path="checkout" element={<Checkout />} />
-        </Routes>
+        <NavBar />
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="item/:itemId" element={<ItemDetails />} />
+            <Route path="checkout" element={<Checkout />} />
+            <Route path="checkout/success" element={<Confirmation />} />
+          </Routes>
         </BrowserRouter>
     </div>
   );
